@@ -58,6 +58,7 @@ const ChatSection = () => {
 
   const getMessages = useCallback(async () => {
     if (!user?._id || !selectedUser?._id) {
+      setLoading(false);
       return;
     }
 

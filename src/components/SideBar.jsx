@@ -28,13 +28,12 @@ const SideBar = () => {
         }
       });
       setUsers(res.data);
-      setSelectedRecipient(res.data[0]);
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
     }
-  }, [setSelectedRecipient, loggedInUser?._id, debouncedSearchText]);
+  }, [loggedInUser?._id, debouncedSearchText]);
 
   useEffect(() => {
     getUsers();

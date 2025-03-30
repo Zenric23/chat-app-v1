@@ -17,10 +17,8 @@ import logo from '../assets/chat-nato-ni-logo.png';
 import { callPublicRoute } from '../helpers/axiosHelpers';
 
 const Main = () => {
-  const { user } = useAuth();
+  const { user, selectedRecipient } = useAuth();
   const { socketId } = useSocket();
-
-  const [selectedUser, setSelectedUser] = useState(null);
 
   const { LogoutDialog, setOpenLogoutDialog } = useLogoutDialog();
 
@@ -75,10 +73,18 @@ const Main = () => {
           </div>
           <div className='bg-white grid grid-cols-[minmax(60px,_60px)_minmax(200px,_400px)_1fr] divide-x h-full'>
             <LeftMenu />
-            <SideBar setSelectedUser={setSelectedUser} />
+            <SideBar />
             <div className='w-full'>
-              <Header />
-              <ChatSection selectedUser={selectedUser} />
+              {selectedRecipient ? (
+                <>
+                  <Header />
+                  <ChatSection />
+                </>
+              ) : (
+                <div className='border h-full flex items-center justify-center text-gray-500'>
+                  Select a user on the left to chat
+                </div>
+              )}
             </div>
           </div>
         </div>

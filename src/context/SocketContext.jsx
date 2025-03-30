@@ -8,7 +8,7 @@ const SocketProvider = ({ children }) => {
   const [socketId, setSocketId] = useState(null);
 
   useEffect(() => {
-    const newSocket = io(import.meta.env.SERVER_URL, { autoConnect: false });
+    const newSocket = io(import.meta.env.VITE_SERVER_URL, { autoConnect: false });
 
     newSocket.connect();
 

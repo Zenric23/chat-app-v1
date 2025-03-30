@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const callPublicRoute = async (requestConfig) => {
   const axiosResponse = await axios({
-    baseURL: 'http://localhost:8000/api',
+    baseURL: `${import.meta.env.SERVER_URL}/api`,
     ...requestConfig
   });
   return axiosResponse;

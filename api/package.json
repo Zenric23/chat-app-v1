@@ -8,7 +8,8 @@
     "start": "nodemon src/app.js",
     "seed:user": "node seeder.js",
     "format": "prettier --write ./src",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
